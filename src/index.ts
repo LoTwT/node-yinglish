@@ -18,8 +18,7 @@ function convertWord(word: string, tag: string, level: number) : string {
         return word[0] + '……' + word
     }
     if (tag === 'n' && probably(level)) {
-        const replaceWord = probably(0.5) ? '❤' : '〇'
-        return '……' + word.replace(/./g, replaceWord)
+        return word.replace(/./g, '〇')
     }
     return '……' + word
 }
@@ -27,3 +26,5 @@ function convertWord(word: string, tag: string, level: number) : string {
 export function chs2yin(sentence: string, level: number = 0.75) {
     return jieba.tag(sentence).map(word => convertWord(word.word, word.tag, level)).join('')
 }
+
+console.log(chs2yin('吃葡萄不吐葡萄皮。'))
