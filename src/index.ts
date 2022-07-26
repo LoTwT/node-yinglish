@@ -20,9 +20,12 @@ function convertWord(word: string, tag: string, level: number) : string {
     if (tag === 'n' && probably(level)) {
         return word.replace(/./g, '〇')
     }
+    if (probably(level)) {
+        return word + '❤'
+    }
     return '……' + word
 }
 
-export function chs2yin(sentence: string, level: number = 0.75) {
+export function chs2yin(sentence: string, level: number = 0.5) {
     return jieba.tag(sentence).map(word => convertWord(word.word, word.tag, level)).join('')
 }
