@@ -11,7 +11,7 @@
         "url": "https://github.com/kifuan/node-yinglish"
     },
 	"scripts": {
-		"pub": "npm prepublish && npm publish",
+		"pub": "npm run prepublish && npm publish",
 		"prepublish": "tsc"
 	},
 	"dependencies": {
