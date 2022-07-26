@@ -4,34 +4,35 @@ function probably(probability: number) : boolean {
     return Math.random() < probability
 }
 
-function getEllipsis() {
-    return probably(0.5) ? '...' : '......'
-}
-
-function getEmoji() : string {
-    const emojis = ['😍', '❤', '🥺', '🥵', '🥰']
-    const index = Math.floor(Math.random() * 5)
-    return emojis[index]
+const fragments = {
+    get ellipsis() {
+        return probably(0.5) ? '...' : '......'
+    },
+    get emoji() {
+        const emojis = ['😍', '❤', '🥺', '🥵', '🥰']
+        const index = Math.floor(Math.random() * 5)
+        return emojis[index]
+    }
 }
 
 function convertWord(word: string, tag: string, level: number) : string {
     if (!probably(level)) {
         return word
     }
-    word = word.replace(/,|，|。/g, getEllipsis()).replace(/!|！/g, '❤')
+    word = word.replace(/,|，|。/g, fragments.ellipsis).replace(/!|！/g, '❤')
     if (tag === 'x') {
         return word
     }
     if (word.length > 1 && probably(level)) {
-        return word[0] + getEllipsis() + word
+        return word[0] + fragments.ellipsis + word
     }
     if (tag === 'n' && probably(level)) {
         return word.replace(/./g, '〇')
     }
     if (tag === 'v' && probably(level)) {
-        return word + getEmoji()
+        return word + fragments.emoji
     }
-    return getEllipsis() + word
+    return fragments.ellipsis + word
 }
 
 export function chs2yin(sentence: string, level: number = 0.5) {
