@@ -26,5 +26,3 @@ function convertWord(word: string, tag: string, level: number) : string {
 export function chs2yin(sentence: string, level: number = 0.75) {
     return jieba.tag(sentence).map(word => convertWord(word.word, word.tag, level)).join('')
 }
-
-console.log(chs2yin('吃葡萄不吐葡萄皮。'))
