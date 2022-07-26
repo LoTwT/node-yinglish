@@ -23,16 +23,13 @@ function convertWord(word: string, tag: string, level: number) : string {
     if (tag === 'x') {
         return word
     }
-    if (word.length > 1 && probably(level)) {
-        return word[0] + fragments.ellipsis + word
-    }
     if (tag === 'n' && probably(level)) {
         return word.replace(/./g, '〇')
     }
     if (tag === 'v' && probably(level)) {
         return word + fragments.emoji
     }
-    return fragments.ellipsis + word
+    return word[0] + fragments.ellipsis + word
 }
 
 export function chs2yin(sentence: string, level: number = 0.5) {

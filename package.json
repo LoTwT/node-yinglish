@@ -1,6 +1,6 @@
 {
 	"name": "node-yinglish",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "淫语翻译器!",
 	"author": "kifuan",
 	"main": "dist/index.js",
