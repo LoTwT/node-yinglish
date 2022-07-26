@@ -8,6 +8,12 @@ function getEllipsis() {
     return probably(0.5) ? '...' : '......'
 }
 
+function getEmoji() : string {
+    const emojis = ['😍', '❤', '🥺', '🥵', '🥰']
+    const index = Math.floor(Math.random() * 5)
+    return emojis[index]
+}
+
 function convertWord(word: string, tag: string, level: number) : string {
     if (!probably(level)) {
         return word
@@ -23,7 +29,7 @@ function convertWord(word: string, tag: string, level: number) : string {
         return word.replace(/./g, '〇')
     }
     if (tag === 'v' && probably(level)) {
-        return word + '❤'
+        return word + getEmoji()
     }
     return getEllipsis() + word
 }
