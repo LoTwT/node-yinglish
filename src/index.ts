@@ -29,7 +29,10 @@ function convertWord(word: string, tag: string, level: number) : string {
     if (tag === 'v' && probably(level)) {
         return word + fragments.emoji
     }
-    return word[0] + fragments.ellipsis + word
+    if (probably(level)) {
+        return word[0] + fragments.ellipsis + word
+    }
+    return fragments.ellipsis + word
 }
 
 export function chs2yin(sentence: string, level: number = 0.5) {
