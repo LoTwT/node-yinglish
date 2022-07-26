@@ -20,7 +20,7 @@ function convertWord(word: string, tag: string, level: number) : string {
     if (tag === 'n' && probably(level)) {
         return word.replace(/./g, '〇')
     }
-    if (probably(level)) {
+    if (tag === 'v' && probably(level)) {
         return word + '❤'
     }
     return '……' + word
