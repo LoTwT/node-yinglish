@@ -10,8 +10,7 @@ const fragments = {
     },
     get emoji() {
         const emojis = ['😍', '❤', '🥺', '🥵', '🥰']
-        const index = Math.floor(Math.random() * 5)
-        return emojis[index]
+        return emojis[Math.floor(Math.random() * emojis.length)]
     }
 }
 
