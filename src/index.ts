@@ -19,7 +19,8 @@ function convertWord({ word, tag }: TaggedWord, level: number): string {
   if (!probably(level))
     return word
 
-  word = word.replace(/,|，|。/g, fragments.ellipsis).replace(/!|！/g, '❤')
+  word = word.replace(/,|，|。/g, () => fragments.ellipsis).replace(/!|！/g, '❤')
+
   if (tag === 'x')
     return word
 
