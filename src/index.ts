@@ -1,3 +1,4 @@
+import type { TaggedWord } from '@node-rs/jieba'
 import jieba from '@node-rs/jieba'
 
 function probably(probability: number): boolean {
@@ -14,7 +15,7 @@ const fragments = {
   },
 }
 
-function convertWord(word: string, tag: string, level: number): string {
+function convertWord({ word, tag }: TaggedWord, level: number): string {
   if (!probably(level))
     return word
 
@@ -35,5 +36,5 @@ function convertWord(word: string, tag: string, level: number): string {
 }
 
 export function chs2yin(sentence: string, level = 0.5) {
-  return jieba.tag(sentence).map(word => convertWord(word.word, word.tag, level)).join('')
+  return jieba.tag(sentence).map(word => convertWord(word, level)).join('')
 }
