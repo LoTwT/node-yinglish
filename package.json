@@ -11,13 +11,17 @@
 		"url": "https://github.com/kifuan/node-yinglish"
 	},
 	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
 		"pub": "tsc && npm publish"
 	},
 	"dependencies": {
 		"@node-rs/jieba": "^1.6.1"
 	},
 	"devDependencies": {
+		"@antfu/eslint-config": "^0.29.3",
 		"@types/node": "^18.6.1",
+		"eslint": "^8.27.0",
 		"typescript": "^4.7.4"
 	}
 }
